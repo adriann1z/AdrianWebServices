@@ -9,6 +9,7 @@ import { BentoServices } from './components/BentoServices';
 import { PricingSection } from './components/PricingSection';
 import { ProcessTimeline } from './components/ProcessTimeline';
 import { AboutFounder } from './components/AboutFounder';
+import { ReviewsSection } from './components/ReviewsSection';
 import { FaqAccordion } from './components/FaqAccordion';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -89,6 +90,8 @@ export default function App() {
 
         {/* SECTION 11: ABOUT THE FOUNDER */}
         <AboutFounder />
+
+        <ReviewsSection />
 
         {/* SECTION 12: FAQ ACCORDION */}
         <FaqAccordion />
