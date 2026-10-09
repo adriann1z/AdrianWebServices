@@ -5,10 +5,30 @@ interface CustomerReview {
   quote: string;
   name: string;
   business?: string;
+  isSample?: boolean;
 }
 
-// Add customer-approved quotes here as they become available.
-const reviews: CustomerReview[] = [];
+// Replace fictional samples with customer-approved quotes before removing their labels.
+const reviews: CustomerReview[] = [
+  {
+    quote: 'The whole process felt straightforward. Our new website is clear, easy to navigate and finally reflects the quality of our work.',
+    name: 'Sample local business owner',
+    business: 'Website redesign',
+    isSample: true,
+  },
+  {
+    quote: 'It was great having one person to speak to throughout. The design came together beautifully and looks just as good on a phone.',
+    name: 'Sample independent retailer',
+    business: 'New business website',
+    isSample: true,
+  },
+  {
+    quote: 'Everything was explained clearly, from the initial plan to launch. Having ongoing support makes keeping the website updated much easier.',
+    name: 'Sample service business owner',
+    business: 'Website and ongoing care',
+    isSample: true,
+  },
+];
 
 const commitments = [
   { icon: MessageSquare, title: 'One person, clear communication', description: 'Speak directly with Adrian throughout your project.' },
@@ -36,6 +56,7 @@ export const ReviewsSection: React.FC = () => (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
           {reviews.map((review, index) => (
             <figure key={`${review.name}-${index}`} className="flex flex-col rounded-lg border border-white/10 bg-[#111318] p-6">
+              {review.isSample && <p className="text-xs text-[#9DA3AF] mb-4">Fictional example / Not a customer review</p>}
               <Quote className="w-6 h-6 text-[#A3FFCB] mb-5" aria-hidden="true" />
               <blockquote className="text-base text-[#F7F8FA] leading-relaxed flex-1 mb-6">{review.quote}</blockquote>
               <figcaption className="border-t border-white/10 pt-4">
