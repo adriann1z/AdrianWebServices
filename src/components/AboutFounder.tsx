@@ -1,6 +1,6 @@
 import React from 'react';
-import { Award, GraduationCap, MapPin, CheckCircle2, UserCheck, Terminal, Heart } from 'lucide-react';
-import { BrandLogo } from './BrandLogo';
+import { Award, GraduationCap, UserCheck } from 'lucide-react';
+import technologyImage from '../assets/images/technology-circuit-board.png';
 
 export const AboutFounder: React.FC = () => {
   return (
@@ -9,32 +9,19 @@ export const AboutFounder: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Branded studio profile */}
+          {/* Technology artwork and credentials */}
           <div className="lg:col-span-5 flex flex-col items-center">
-            <div className="w-full max-w-md border-l-2 border-[#A3FFCB]/50 pl-6 sm:pl-8">
+            <div className="w-full max-w-md">
               
-              <div className="flex flex-col items-start">
-                <p className="text-xs font-mono uppercase text-[#9DA3AF] mb-6">Independent web studio</p>
-                
-                {/* Architectural Developer Motif / Monogram */}
-                <div className="mb-8">
-                  <BrandLogo size="xl" />
-                </div>
-
-                <div className="font-display font-bold text-xl text-white mb-1">
-                  Adrian Wrezel
-                </div>
-                <div className="text-xs font-mono text-[#A3FFCB] uppercase tracking-wider mb-4">
-                  Founder & Full-Stack Developer
-                </div>
-
-                <div className="inline-flex items-center gap-2 text-xs text-[#9DA3AF] mb-4">
-                  <MapPin className="w-3.5 h-3.5 text-[#A3FFCB]" />
-                  <span>Lincoln, United Kingdom</span>
-                </div>
-
-                <p className="text-sm text-[#9DA3AF] leading-relaxed max-w-sm">Thoughtful design. Solid development. A website built around your business.</p>
-              </div>
+              <img
+                src={technologyImage}
+                alt="Detailed graphite microprocessor with illuminated mint-green circuit pathways"
+                width={1024}
+                height={1280}
+                loading="lazy"
+                decoding="async"
+                className="block w-full aspect-[4/5] object-cover rounded-lg"
+              />
 
               {/* Verified Credentials Pills */}
               <div className="mt-6 border-t border-white/10">
