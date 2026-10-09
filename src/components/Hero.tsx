@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ArrowUpRight, ArrowDown, Sparkles, CheckCircle2, ShieldCheck, Cpu } from 'lucide-react';
 import { motion } from 'motion/react';
+import heroImage from '../assets/images/hero_web_showcase_1791569635989.jpg';
 
 interface HeroProps {
   onOpenMockup: () => void;
@@ -48,6 +49,25 @@ export const Hero: React.FC<HeroProps> = ({ onOpenMockup, onExploreWork }) => {
       ref={containerRef}
       className="relative min-h-[92vh] pt-32 pb-20 flex items-center overflow-hidden bg-[#08090B] bg-tech-grid"
     >
+      <div className="hero-waves" aria-hidden="true">
+        <svg viewBox="0 0 1600 700" preserveAspectRatio="none">
+          {Array.from({ length: 9 }, (_, index) => {
+            const y = 290 + index * 24;
+            const curve = `M -100 ${y} C 240 ${y - 210}, 460 ${y + 210}, 800 ${y} S 1320 ${y - 210}, 1700 ${y}`;
+            return (
+              <g key={index}>
+                <path d={curve} className="hero-wave-track" />
+                <path
+                  d={curve}
+                  pathLength={100}
+                  className="hero-wave-pulse"
+                  style={{ animationDelay: `${index * -0.45}s` }}
+                />
+              </g>
+            );
+          })}
+        </svg>
+      </div>
       {/* Ambient Lighting Gradients */}
       <div 
         className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[#A3FFCB]/5 blur-[120px] rounded-full pointer-events-none" 
@@ -154,7 +174,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenMockup, onExploreWork }) => {
               {/* Main Realistic Mockup Image */}
               <div className="relative aspect-video rounded-b-xl overflow-hidden bg-[#08090B]">
                 <img
-                  src="/src/assets/images/hero_web_showcase_1791569635989.jpg"
+                  src={heroImage}
                   alt="Adrian Web Services interactive digital portfolio interface"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

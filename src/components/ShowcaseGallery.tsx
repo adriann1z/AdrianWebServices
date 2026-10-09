@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { ProjectItem } from '../types';
 import { ExternalLink, Layers, ArrowUpRight, Check, Eye } from 'lucide-react';
 import { motion } from 'motion/react';
+import aestheticsImage from '../assets/images/showcase_aesthetics_clinic_1791569647176.jpg';
+import tradesImage from '../assets/images/showcase_trades_bespoke_1791569656115.jpg';
+import accountancyImage from '../assets/images/showcase_accountancy_pro_1791569667192.jpg';
+import studioImage from '../assets/images/hero_web_showcase_1791569635989.jpg';
 
 interface ShowcaseGalleryProps {
   onSelectProject: (project: ProjectItem) => void;
@@ -16,7 +20,7 @@ export const showcaseProjects: ProjectItem[] = [
     shortDesc: 'Refined medical aesthetics clinic with interactive treatment selector, luxury editorial typography and direct consultation booking.',
     fullDesc: 'Designed to elevate patient trust for a premium UK skin and aesthetics clinic. Featuring serene neutral stone palettes, bespoke treatment navigation, pricing clarity, and frictionless mobile appointment requests.',
     services: ['Bespoke UI/UX Design', 'Full-Stack Development', 'Mobile Optimization', 'SEO Foundations'],
-    image: '/src/assets/images/showcase_aesthetics_clinic_1791569647176.jpg',
+    image: aestheticsImage,
     clientType: 'Private Medical Aesthetics Clinic',
     techStack: ['React 19', 'Tailwind CSS', 'Booking API', 'Responsive Layouts'],
     liveFeatures: ['Treatment Catalog', 'Practitioner Credentials', 'Online Consultation Flow', 'Google Reviews Integration'],
@@ -28,7 +32,7 @@ export const showcaseProjects: ProjectItem[] = [
     shortDesc: 'Contemporary craftsmanship portfolio showcasing bespoke oak staircases, heritage panelling and high-value residential carpentry.',
     fullDesc: 'Crafted for an elite British architectural workshop where photographic impact and tactile trust are paramount. Displays high-resolution timber craftsmanship, case study walkthroughs, and clear inquiry triggers.',
     services: ['Website Redesign', 'Responsive Engineering', 'High-Res Asset Optimisation', 'Local SEO'],
-    image: '/src/assets/images/showcase_trades_bespoke_1791569656115.jpg',
+    image: tradesImage,
     clientType: 'Bespoke Joinery & Carpentry Workshop',
     techStack: ['TypeScript', 'Tailwind CSS', 'Fast Image Delivery', 'Accessible Form Controls'],
     liveFeatures: ['Full-Width Project Masonry', 'Workshop Journal', 'Custom Quote Consultation', 'Local UK Schema'],
@@ -40,7 +44,7 @@ export const showcaseProjects: ProjectItem[] = [
     shortDesc: 'Modern financial advisory and chartered accountancy portal with clean data-driven design, fee transparency and client portal access.',
     fullDesc: 'Replaces outdated corporate accountancy templates with a crisp, authoritative web presence. Highlights tax advisory specialisms, real partner credentials, and instant discovery call scheduling.',
     services: ['Digital Strategy', 'Frontend Architecture', 'Corporate Redesign', 'Cloud Hosting'],
-    image: '/src/assets/images/showcase_accountancy_pro_1791569667192.jpg',
+    image: accountancyImage,
     clientType: 'Chartered Accountancy & Tax Advisory',
     techStack: ['React', 'Modern Typography Scale', 'Client Portal Gateway', 'SSL Edge Security'],
     liveFeatures: ['Tax Efficiency Calculator', 'Team Directory', 'Insight Library', 'Encrypted Document Portal Gateway'],
@@ -52,7 +56,7 @@ export const showcaseProjects: ProjectItem[] = [
     shortDesc: 'Fluid, high-performance dark mode digital studio application with dynamic lighting, responsive cards and smooth micro-interactions.',
     fullDesc: 'Built for forward-thinking creative practices requiring ultra-fast page speed, fluid transitions, and a modern dark aesthetic that commands immediate attention.',
     services: ['Web Application Development', 'Interactive 3D UI', 'Managed Maintenance', 'Performance Tuning'],
-    image: '/src/assets/images/hero_web_showcase_1791569635989.jpg',
+    image: studioImage,
     clientType: 'Creative Technology Studio',
     techStack: ['Motion React', 'CSS Matrix 3D', 'Vite', 'Edge Caching'],
     liveFeatures: ['3D Perspective Tilt', 'Dynamic Dark Theme', 'Instant Search Filter', 'Micro-interactions'],
