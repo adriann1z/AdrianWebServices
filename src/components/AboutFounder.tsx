@@ -5,22 +5,20 @@ import { BrandLogo } from './BrandLogo';
 export const AboutFounder: React.FC = () => {
   return (
     <section id="about" className="py-24 bg-[#08090B] relative overflow-hidden border-t border-white/10">
-      {/* Subtle Glow */}
-      <div className="absolute top-1/2 right-10 w-[500px] h-[500px] bg-[#A3FFCB]/5 blur-[160px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Founder Portrait & Credentials Card */}
+          {/* Branded studio profile */}
           <div className="lg:col-span-5 flex flex-col items-center">
-            <div className="w-full max-w-md bg-[#111318] rounded-2xl border border-white/15 p-6 shadow-2xl relative group">
+            <div className="w-full max-w-md border-l-2 border-[#A3FFCB]/50 pl-6 sm:pl-8">
               
-              {/* Elegant Portrait Frame Placeholder for Adrian's Photo */}
-              <div className="relative aspect-[4/5] rounded-xl overflow-hidden bg-gradient-to-b from-[#191C22] to-[#0D0F13] border border-white/10 flex flex-col items-center justify-center p-6 text-center group-hover:border-[#A3FFCB]/40 transition-colors">
+              <div className="flex flex-col items-start">
+                <p className="text-xs font-mono uppercase text-[#9DA3AF] mb-6">Independent web studio</p>
                 
                 {/* Architectural Developer Motif / Monogram */}
-                <div className="w-24 h-24 rounded-2xl bg-[#08090B] border border-white/15 shadow-xl flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300">
-                  <BrandLogo size="lg" showText={false} />
+                <div className="mb-8">
+                  <BrandLogo size="xl" />
                 </div>
 
                 <div className="font-display font-bold text-xl text-white mb-1">
@@ -30,29 +28,26 @@ export const AboutFounder: React.FC = () => {
                   Founder & Full-Stack Developer
                 </div>
 
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[11px] text-[#9DA3AF] mb-4">
+                <div className="inline-flex items-center gap-2 text-xs text-[#9DA3AF] mb-4">
                   <MapPin className="w-3.5 h-3.5 text-[#A3FFCB]" />
                   <span>Lincoln, United Kingdom</span>
                 </div>
 
-                {/* Upload Placeholder Badge note */}
-                <div className="mt-auto px-4 py-2 rounded-lg bg-black/40 border border-white/5 text-[10px] font-mono text-white/50">
-                  [Adrian Wrezel Portrait Frame · Ready for Photo Upload]
-                </div>
+                <p className="text-sm text-[#9DA3AF] leading-relaxed max-w-sm">Thoughtful design. Solid development. A website built around your business.</p>
               </div>
 
               {/* Verified Credentials Pills */}
-              <div className="mt-6 space-y-2.5">
-                <div className="flex items-center gap-3 p-3 rounded-lg bg-[#191C22] border border-white/5 text-xs">
+              <div className="mt-6 border-t border-white/10">
+                <div className="flex items-center gap-3 py-5 border-b border-white/10 text-sm">
                   <GraduationCap className="w-4 h-4 text-[#A3FFCB] shrink-0" />
                   <span className="text-white font-medium">
                     First-Class Honours BSc Computer Science
                   </span>
                 </div>
-                <div className="flex items-center gap-3 p-3 rounded-lg bg-[#191C22] border border-white/5 text-xs">
+                <div className="flex items-center gap-3 py-5 border-b border-white/10 text-sm">
                   <UserCheck className="w-4 h-4 text-[#A3FFCB] shrink-0" />
                   <span className="text-white font-medium">
-                    Direct 1-on-1 Communication (No Junior Account Handlers)
+                    Direct communication, from first conversation to launch
                   </span>
                 </div>
               </div>
