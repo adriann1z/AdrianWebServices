@@ -47,7 +47,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenMockup, onExploreWork }) => {
     <section
       id="home"
       ref={containerRef}
-      className="relative min-h-[92vh] pt-32 pb-20 flex items-center overflow-hidden bg-[#08090B] bg-tech-grid"
+      className="relative min-h-[92vh] pt-32 pb-20 flex items-center overflow-hidden bg-[#08090B]"
     >
       <div className="hero-waves" aria-hidden="true">
         <svg viewBox="0 0 1600 700" preserveAspectRatio="none">

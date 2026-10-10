@@ -29,11 +29,34 @@
 }
 
 /* Subtle Technical Grid & Ambient Lighting */
-.bg-tech-grid {
+.bg-tech-grid,
+main > section::before,
+footer::before {
   background-size: 32px 32px;
   background-image: 
     linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+}
+
+main > section,
+footer {
+  position: relative;
+}
+
+main > section::before,
+footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, transparent, #000 15%, #000 85%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 15%, #000 85%, transparent);
+}
+
+main > section > [class*="max-w-"],
+footer > [class*="max-w-"] {
+  position: relative;
+  z-index: 10;
 }
 
 .bg-dot-grid {
