@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Rocket } from 'lucide-react';
 
-const flights = [18, 14, 20, 16, 14];
+const flights = [32, 28, 36, 30, 28];
 
 export const RocketBackground: React.FC = () => {
   const backgroundRef = useRef<HTMLDivElement>(null);
@@ -39,8 +39,8 @@ export const RocketBackground: React.FC = () => {
           vertical ? (dy > 0 ? height - cy : cy) / Math.abs(dy) : Infinity,
         ) + 100;
         const distance = before + after;
-        const amplitude = 16 + Math.random() * 20;
-        const cycles = 1.5 + Math.random();
+        const amplitude = 48 + Math.random() * 32;
+        const cycles = 2.5 + Math.random();
         const phase = Math.random() * Math.PI * 2;
         const keyframes = Array.from({ length: 121 }, (_, step) => {
           const progress = step / 120;
