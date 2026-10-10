@@ -330,37 +330,10 @@
   }
 }
 
-.site-shell {
-  position: relative;
-  isolation: isolate;
-}
-
-/* Keep the animation below opaque content surfaces, visible only in open space. */
-.site-shell > main,
-.site-shell > footer {
-  position: relative;
-  z-index: 1;
-}
-
-.site-shell > main > section,
-.site-shell > footer {
-  background: transparent;
-}
-
-.site-shell > main > section > [class*="max-w-"],
-.site-shell > footer > [class*="max-w-"] {
-  position: relative;
-  background-color: #08090B;
-}
-
-.site-shell > header {
-  background-color: #08090B;
-}
-
 .rocket-background {
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: 20;
   overflow: hidden;
   pointer-events: none;
   color: #39F580;

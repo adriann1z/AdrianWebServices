@@ -38,7 +38,7 @@ export default function App() {
   };
 
   return (
-    <div className="site-shell min-h-screen bg-[#08090B] text-[#F7F8FA] selection:bg-[#A3FFCB]/25 selection:text-[#A3FFCB] flex flex-col font-sans">
+    <div className="min-h-screen bg-[#08090B] text-[#F7F8FA] selection:bg-[#A3FFCB]/25 selection:text-[#A3FFCB] flex flex-col font-sans">
       <RocketBackground />
       {/* SECTION 5: FLOATING TOP NAVIGATION */}
       <Navbar onOpenContact={() => scrollToContact('New Website')} />
