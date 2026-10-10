@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { CinematicIntro } from './components/CinematicIntro';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { InteractiveStyleSwitcher } from './components/InteractiveStyleSwitcher';
@@ -18,7 +17,6 @@ import { LegalModal } from './components/LegalModal';
 import { ProjectItem } from './types';
 
 export default function App() {
-  const [introFinished, setIntroFinished] = useState(false);
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
   const [legalModalType, setLegalModalType] = useState<'privacy' | 'cookies' | null>(null);
   const [selectedProjectType, setSelectedProjectType] = useState<string>('New Website');
@@ -40,11 +38,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#08090B] text-[#F7F8FA] selection:bg-[#A3FFCB]/25 selection:text-[#A3FFCB] flex flex-col font-sans">
-      {/* SECTION 1: CINEMATIC INTRO */}
-      {!introFinished && (
-        <CinematicIntro onComplete={() => setIntroFinished(true)} />
-      )}
-
       {/* SECTION 5: FLOATING TOP NAVIGATION */}
       <Navbar onOpenContact={() => scrollToContact('New Website')} />
 
