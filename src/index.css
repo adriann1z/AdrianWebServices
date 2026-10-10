@@ -330,6 +330,47 @@
   }
 }
 
+.rocket-background {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  overflow: hidden;
+  pointer-events: none;
+  color: #A3FFCB;
+  opacity: 0.18;
+}
+
+.rocket-flight {
+  position: absolute;
+  left: -90px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  animation: rocket-crossing linear infinite;
+}
+
+.rocket-flight svg {
+  flex-shrink: 0;
+  transform: rotate(45deg);
+}
+
+.rocket-trail {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #A3FFCB);
+}
+
+@keyframes rocket-crossing {
+  from { transform: translate(0, 35px); }
+  to { transform: translate(calc(100vw + 180px), -90px); }
+}
+
+@media (max-width: 767px) {
+  .rocket-background { opacity: 0.14; }
+  .rocket-flight:nth-child(n + 4) { display: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .rocket-background { display: none; }
   .hero-wave-pulse { animation: none; opacity: 0.15; }
 }

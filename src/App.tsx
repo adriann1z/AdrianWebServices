@@ -15,6 +15,7 @@ import { Footer } from './components/Footer';
 import { ProjectModal } from './components/ProjectModal';
 import { LegalModal } from './components/LegalModal';
 import { ProjectItem } from './types';
+import { RocketBackground } from './components/RocketBackground';
 
 export default function App() {
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
@@ -38,6 +39,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#08090B] text-[#F7F8FA] selection:bg-[#A3FFCB]/25 selection:text-[#A3FFCB] flex flex-col font-sans">
+      <RocketBackground />
       {/* SECTION 5: FLOATING TOP NAVIGATION */}
       <Navbar onOpenContact={() => scrollToContact('New Website')} />
 
