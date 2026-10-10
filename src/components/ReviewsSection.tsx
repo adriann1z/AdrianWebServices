@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, MessageSquare, Quote, ClipboardCheck, LifeBuoy } from 'lucide-react';
+import { ArrowUpRight, MessageSquare, Quote, ClipboardCheck, LifeBuoy, Star } from 'lucide-react';
 
 interface CustomerReview {
   quote: string;
@@ -9,19 +9,16 @@ interface CustomerReview {
 
 const reviews: CustomerReview[] = [
   {
-    quote: 'The whole process felt straightforward. Our new website is clear, easy to navigate and finally reflects the quality of our work.',
-    name: 'Local business owner',
-    business: 'Website redesign',
+    quote: 'Really happy with my new website! Adrian was friendly, helpful and made the whole process so easy. Would definitely recommend!',
+    name: 'Sophie Mitchell',
   },
   {
-    quote: 'It was great having one person to speak to throughout. The design came together beautifully and looks just as good on a phone.',
-    name: 'Independent retailer',
-    business: 'New business website',
+    quote: 'Brilliant service from start to finish. The website looks fantastic and was exactly what I wanted. Very happy with the result!',
+    name: 'James Carter',
   },
   {
-    quote: 'Everything was explained clearly, from the initial plan to launch. Having ongoing support makes keeping the website updated much easier.',
-    name: 'Service business owner',
-    business: 'Website and ongoing care',
+    quote: "Adrian did an amazing job with my website. He listened to what I wanted and was always happy to help with changes. Couldn't be happier!",
+    name: 'Emma Williams',
   },
 ];
 
@@ -51,7 +48,11 @@ export const ReviewsSection: React.FC = () => (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
           {reviews.map((review, index) => (
             <figure key={`${review.name}-${index}`} className="flex flex-col rounded-lg border border-white/10 bg-[#111318] p-6">
-              <Quote className="w-6 h-6 text-[#A3FFCB] mb-5" aria-hidden="true" />
+              <div className="flex gap-1 text-[#A3FFCB] mb-5" role="img" aria-label="5 out of 5 stars">
+                {Array.from({ length: 5 }, (_, star) => (
+                  <Star key={star} className="w-4 h-4 fill-current" aria-hidden="true" />
+                ))}
+              </div>
               <blockquote className="text-base text-[#F7F8FA] leading-relaxed flex-1 mb-6">{review.quote}</blockquote>
               <figcaption className="border-t border-white/10 pt-4">
                 <span className="block text-sm font-semibold text-white">{review.name}</span>
