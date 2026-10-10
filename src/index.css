@@ -354,45 +354,6 @@ footer > [class*="max-w-"] {
   }
 }
 
-.rocket-background {
-  position: fixed;
-  inset: 0;
-  z-index: 20;
-  overflow: hidden;
-  pointer-events: none;
-  color: #32F578;
-  opacity: 0.48;
-}
-
-.rocket-flight {
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform-origin: 0 0;
-}
-
-.rocket-flight svg {
-  flex-shrink: 0;
-  transform: rotate(45deg);
-}
-
-.rocket-trail {
-  position: absolute;
-  right: calc(100% + 5px);
-  width: 48px;
-  height: 1px;
-  background: linear-gradient(to right, transparent, #32F578);
-}
-
-@media (max-width: 767px) {
-  .rocket-background { opacity: 0.4; }
-  .rocket-flight:nth-child(n + 7) { display: none; }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .rocket-background { display: none; }
   .hero-wave-pulse { animation: none; opacity: 0.15; }
 }
