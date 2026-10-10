@@ -389,7 +389,7 @@ footer > [class*="max-w-"] {
 
 @media (max-width: 767px) {
   .rocket-background { opacity: 0.4; }
-  .rocket-flight:nth-child(n + 4) { display: none; }
+  .rocket-flight:nth-child(n + 7) { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

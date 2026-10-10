@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Rocket } from 'lucide-react';
 
-const flights = [32, 28, 36, 30, 28];
+const flights = [32, 28, 36, 30, 28, 32, 28, 36, 30, 28];
 
 export const RocketBackground: React.FC = () => {
   const backgroundRef = useRef<HTMLDivElement>(null);
@@ -23,7 +23,7 @@ export const RocketBackground: React.FC = () => {
       }
       flightRefs.current.forEach((element, index) => {
         if (!element) return;
-        const angle = directions[index];
+        const angle = directions[index % directions.length];
         const dx = Math.cos(angle);
         const dy = Math.sin(angle);
         const cx = width * (0.2 + Math.random() * 0.6);
