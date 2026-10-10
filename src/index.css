@@ -30,11 +30,10 @@
 
 /* Subtle Technical Grid & Ambient Lighting */
 .bg-tech-grid {
-  background-color: #0B0D10;
   background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(180, 188, 198, 0.085) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(180, 188, 198, 0.085) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
 }
 
 .bg-dot-grid {
@@ -337,18 +336,17 @@
   z-index: 20;
   overflow: hidden;
   pointer-events: none;
-  color: #39F580;
-  opacity: 0.48;
+  color: #A3FFCB;
+  opacity: 0.18;
 }
 
 .rocket-flight {
   position: absolute;
-  left: 0;
-  top: 0;
+  left: -90px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  transform-origin: 0 0;
+  gap: 5px;
+  animation: rocket-crossing linear infinite;
 }
 
 .rocket-flight svg {
@@ -357,16 +355,19 @@
 }
 
 .rocket-trail {
-  position: absolute;
-  right: calc(100% + 4px);
-  width: 28px;
+  width: 48px;
   height: 1px;
-  background: linear-gradient(to right, transparent, #39F580);
+  background: linear-gradient(to right, transparent, #A3FFCB);
+}
+
+@keyframes rocket-crossing {
+  from { transform: translate(0, 35px); }
+  to { transform: translate(calc(100vw + 180px), -90px); }
 }
 
 @media (max-width: 767px) {
-  .rocket-background { opacity: 0.4; }
-  .rocket-flight:nth-child(n + 11) { display: none; }
+  .rocket-background { opacity: 0.14; }
+  .rocket-flight:nth-child(n + 4) { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
