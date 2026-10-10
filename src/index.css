@@ -366,11 +366,12 @@ footer > [class*="max-w-"] {
 
 .rocket-flight {
   position: absolute;
-  left: -90px;
+  left: 0;
+  top: 0;
   display: flex;
   align-items: center;
-  gap: 5px;
-  animation: rocket-crossing linear infinite;
+  justify-content: center;
+  transform-origin: 0 0;
 }
 
 .rocket-flight svg {
@@ -379,14 +380,11 @@ footer > [class*="max-w-"] {
 }
 
 .rocket-trail {
+  position: absolute;
+  right: calc(100% + 5px);
   width: 48px;
   height: 1px;
   background: linear-gradient(to right, transparent, #A3FFCB);
-}
-
-@keyframes rocket-crossing {
-  from { transform: translate(0, 35px); }
-  to { transform: translate(calc(100vw + 180px), -90px); }
 }
 
 @media (max-width: 767px) {

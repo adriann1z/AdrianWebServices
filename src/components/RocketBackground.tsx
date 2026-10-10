@@ -1,16 +1,78 @@
 import React, { useEffect, useRef } from 'react';
 import { Rocket } from 'lucide-react';
 
-const flights = [
-  { top: '12%', duration: '27s', delay: '-9s', size: 18 },
-  { top: '34%', duration: '34s', delay: '-24s', size: 14 },
-  { top: '58%', duration: '31s', delay: '-5s', size: 20 },
-  { top: '79%', duration: '38s', delay: '-19s', size: 16 },
-  { top: '94%', duration: '29s', delay: '-16s', size: 14 },
-];
+const flights = [18, 14, 20, 16, 14];
 
 export const RocketBackground: React.FC = () => {
   const backgroundRef = useRef<HTMLDivElement>(null);
+  const flightRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let animations: Animation[] = [];
+    const startFlights = () => {
+      animations.forEach((animation) => animation.cancel());
+      animations = [];
+      if (reducedMotion.matches) return;
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      const directions = Array.from({ length: 8 }, (_, index) => index * Math.PI / 4);
+      for (let i = directions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [directions[i], directions[j]] = [directions[j], directions[i]];
+      }
+      flightRefs.current.forEach((element, index) => {
+        if (!element) return;
+        const angle = directions[index];
+        const dx = Math.cos(angle);
+        const dy = Math.sin(angle);
+        const cx = width * (0.2 + Math.random() * 0.6);
+        const cy = height * (0.2 + Math.random() * 0.6);
+        const horizontal = Math.abs(dx) > 0.001;
+        const vertical = Math.abs(dy) > 0.001;
+        const before = Math.min(
+          horizontal ? (dx > 0 ? cx : width - cx) / Math.abs(dx) : Infinity,
+          vertical ? (dy > 0 ? cy : height - cy) / Math.abs(dy) : Infinity,
+        ) + 100;
+        const after = Math.min(
+          horizontal ? (dx > 0 ? width - cx : cx) / Math.abs(dx) : Infinity,
+          vertical ? (dy > 0 ? height - cy : cy) / Math.abs(dy) : Infinity,
+        ) + 100;
+        const distance = before + after;
+        const amplitude = 16 + Math.random() * 20;
+        const cycles = 1.5 + Math.random();
+        const phase = Math.random() * Math.PI * 2;
+        const keyframes = Array.from({ length: 121 }, (_, step) => {
+          const progress = step / 120;
+          const waveAngle = phase + progress * cycles * Math.PI * 2;
+          const wave = Math.sin(waveAngle) * amplitude;
+          const x = cx + dx * (progress * distance - before) - dy * wave;
+          const y = cy + dy * (progress * distance - before) + dx * wave;
+          const slope = Math.cos(waveAngle) * amplitude * cycles * Math.PI * 2;
+          const heading = Math.atan2(dy * distance + dx * slope, dx * distance - dy * slope);
+          return { transform: `translate(${x}px, ${y}px) rotate(${heading}rad)` };
+        });
+        const duration = distance / (30 + Math.random() * 20) * 1000;
+        animations.push(element.animate(keyframes, {
+          duration, iterations: Infinity, easing: 'linear', delay: -Math.random() * duration,
+        }));
+      });
+      updateVisibility();
+    };
+    const updateVisibility = () => {
+      animations.forEach((animation) => document.hidden ? animation.pause() : animation.play());
+    };
+    startFlights();
+    window.addEventListener('resize', startFlights);
+    reducedMotion.addEventListener('change', startFlights);
+    document.addEventListener('visibilitychange', updateVisibility);
+    return () => {
+      animations.forEach((animation) => animation.cancel());
+      window.removeEventListener('resize', startFlights);
+      reducedMotion.removeEventListener('change', startFlights);
+      document.removeEventListener('visibilitychange', updateVisibility);
+    };
+  }, []);
 
   useEffect(() => {
     let frame = 0;
@@ -66,14 +128,15 @@ export const RocketBackground: React.FC = () => {
 
   return (
   <div ref={backgroundRef} className="rocket-background" aria-hidden="true" style={{ visibility: 'hidden' }}>
-    {flights.map((flight, index) => (
+    {flights.map((size, index) => (
       <div
         key={index}
         className="rocket-flight"
-        style={{ top: flight.top, animationDuration: flight.duration, animationDelay: flight.delay }}
+        ref={(element) => { flightRefs.current[index] = element; }}
+        style={{ width: size, height: size }}
       >
         <span className="rocket-trail" />
-        <Rocket width={flight.size} height={flight.size} strokeWidth={1.5} />
+        <Rocket width={size} height={size} strokeWidth={1.5} />
       </div>
     ))}
   </div>
