@@ -104,14 +104,6 @@ export const ShowcaseGallery: React.FC<ShowcaseGalleryProps> = ({
             </p>
           </div>
 
-          <div className="flex flex-col items-start md:items-end text-xs font-mono text-[#9DA3AF]">
-            <span className="bg-white/5 border border-white/10 px-3 py-1.5 rounded text-white/80">
-              Honest Disclosure: Concepts & Architectural Prototypes
-            </span>
-            <span className="text-[11px] text-[#9DA3AF]/70 mt-1">
-              Custom-built to illustrate industry-specific design capability.
-            </span>
-          </div>
         </div>
 
         {/* Category Filters (Segmented Controls) */}
