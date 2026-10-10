@@ -360,8 +360,8 @@ footer > [class*="max-w-"] {
   z-index: 20;
   overflow: hidden;
   pointer-events: none;
-  color: #A3FFCB;
-  opacity: 0.18;
+  color: #32F578;
+  opacity: 0.48;
 }
 
 .rocket-flight {
@@ -384,11 +384,11 @@ footer > [class*="max-w-"] {
   right: calc(100% + 5px);
   width: 48px;
   height: 1px;
-  background: linear-gradient(to right, transparent, #A3FFCB);
+  background: linear-gradient(to right, transparent, #32F578);
 }
 
 @media (max-width: 767px) {
-  .rocket-background { opacity: 0.14; }
+  .rocket-background { opacity: 0.4; }
   .rocket-flight:nth-child(n + 4) { display: none; }
 }
 
